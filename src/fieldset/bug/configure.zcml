@@ -1,0 +1,30 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="fieldset.bug">
+
+    <includeDependencies package="."/>
+    <include package="plone.resource" file="meta.zcml"/>
+    <include package="Products.GenericSetup" file="meta.zcml"/>
+
+    <genericsetup:registerProfile
+        name="default"
+        title="fieldset bug"
+        directory="profiles/default"
+        description=""
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <plone:behavior
+        title="fieldset bug"
+        description=""
+        provides=".behaviors.IFieldsetBugBehavior"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+</configure>
